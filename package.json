@@ -1,0 +1,28 @@
+{
+  "name": "nodestats-logger",
+  "version": "1.0.0",
+  "description": "The central data store & reporting server for nodestats.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js config.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodestats/nodestats-logger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nodestats/nodestats-logger/issues"
+  },
+  "homepage": "https://github.com/nodestats/nodestats-logger#readme",
+  "dependencies": {
+    "asyncawait": "^1.0.6",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "jsonfile": "^3.0.0",
+    "merge": "^1.2.0",
+    "mysql": "^2.13.0"
+  }
+}
