@@ -1,0 +1,10 @@
+{
+  "database": {
+
+  },
+  "server": {
+    "http"  : 57473,
+    "ip"    : "0.0.0.0",
+    "apikey": "LetMeIn"
+  }
+}
