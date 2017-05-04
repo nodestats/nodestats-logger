@@ -72,7 +72,21 @@ app.use(bodyParser.json());
 app.post('/', function(req, res) {
     if(typeof req.body.HOSTNAME !== "undefined") {
         console.log("   >>> UPDATING: '"+req.body.HOSTNAME+"'");
+
+        // decode date
+
+        // make record
+
+        // post to MYSQL
+
+        // update RAM object
         servers[req.body.HOSTNAME] = req.body;
+
+        //rebuild overall response JSON... and string it... ONCE...
+
+        // FOR THE FOO.CAR:: calculate alarms
+
+        // FOR THE FOO.CAR:: ping the sockets?
     }
     res.end();
 });
