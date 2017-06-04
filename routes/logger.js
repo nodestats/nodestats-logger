@@ -13,7 +13,7 @@ router.route('/')
     .post(async(function(req, res) {
         // Check the API key...
         if(req.body.APIKEY !== config.server.apikey) {
-            console.log("ACCESS FAIL: ",req);
+            console.log("FAIL: APIKEY ",req);
             res.removeHeader('Content-Length');
             res.removeHeader('Connection');
             res.end();
@@ -22,11 +22,11 @@ router.route('/')
 
         res.set("Connection", "close");
         if(typeof req.body.HOSTNAME !== "undefined") {
-            console.log("REQUEST FROM: "+req.body.HOSTNAME);
+            console.log("REQUEST: "+req.body.HOSTNAME);
 
             let server = await(Server.byHostname(req.body.HOSTNAME));
             if(server==null) {
-                console.log("CREATE SERVER: ",req.body.HOSTNAME);
+                console.log("CREATE SERVER: HOSTNAME= ",req.body.HOSTNAME);
                 server = await(new Server({
                     hostname: req.body.HOSTNAME,
                     state: 'S_ONLINE',
@@ -40,7 +40,7 @@ router.route('/')
                 recorded_at: req.body.TIMESTAMP
             }).save());
 
-            console.log("CREATE LOG with ID: ",log.id," FOR ",req.body.HOSTNAME);
+            console.log("CREATE LOG: ID= ",log.id,", FOR= ",req.body.HOSTNAME);
 
 
             //rebuild overall response JSON... and string it... ONCE...
