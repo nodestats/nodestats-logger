@@ -1,5 +1,5 @@
 const bookshelf = require('../bookshelf');
-const Model = require('./Model');
+const Model = require('./model');
 
 class Log extends Model {
     get tableName() {

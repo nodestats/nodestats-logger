@@ -1,5 +1,5 @@
 module.exports = {
-    Model: require('./model'),
+    model: require('./model'),
     Server: require('./server'),
     Log: require('./log')
 };
