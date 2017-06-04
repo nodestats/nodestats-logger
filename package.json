@@ -1,11 +1,12 @@
 {
   "name": "nodestats-logger",
-  "version": "1.0.0",
+  "version": "0.0.3",
   "description": "The central data store & reporting server for nodestats.",
-  "main": "server.js",
+  "main": "nodestats-logger.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js config.json"
+    "start": "node nodestats-logger.js",
+    "migrate": "knex migrate:latest"
   },
   "repository": {
     "type": "git",
@@ -20,8 +21,10 @@
   "dependencies": {
     "asyncawait": "^1.0.6",
     "body-parser": "^1.17.1",
+    "bookshelf": "^0.10.3",
     "express": "^4.15.2",
     "jsonfile": "^3.0.0",
+    "knex": "^0.13.0",
     "merge": "^1.2.0",
     "mysql": "^2.13.0"
   }

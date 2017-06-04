@@ -39,3 +39,7 @@ jspm_packages
 # IDE cruft
 .idea
 
+# Application Specific files...
+config.json
+knexfile.js
+my_demo.sqlite3
