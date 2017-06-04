@@ -41,5 +41,4 @@ jspm_packages
 
 # Application Specific files...
 config.json
-knexfile.js
 my_demo.sqlite3
