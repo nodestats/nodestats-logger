@@ -1,4 +1,10 @@
 {
+  "database": {
+    "client": "sqlite3",
+    "connection": {
+        "filename": "./demo.sqlite3"
+    },
+  },
   "server": {
     "http"  : 57473,
     "ip"    : "0.0.0.0",

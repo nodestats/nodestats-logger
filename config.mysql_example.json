@@ -1,0 +1,19 @@
+{
+  "database": {
+    "client": "mysql",
+    "connection": {
+      "host": "127.0.0.1",
+      "user": "root",
+      "password" : "",
+      "database" : "nodestats"
+    }
+  },
+  "server": {
+    "http"  : 57473,
+    "ip"    : "0.0.0.0",
+    "apikey": "LetMeIn"
+  },
+  "dashboard": {
+    "enabled": true
+  }
+}
