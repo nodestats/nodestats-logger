@@ -16,13 +16,20 @@ const app = express();
 
 app.disable('x-powered-by');
 
+//////////////////////////////////////////////////////////////////////////
+//
+// Only load the dashboard routes if they're actually required... :)
+//
+//////////////////////////////////////////////////////////////////////////
+if(config.dashboard.enabled) {
+    app.use('/dashboard', require('./routes/dashboard'));
 
-app.use('/dashboard', require('./routes/dashboard'));
-
-app.route('/')
-    .get(function(req, res) {
-        res.end("<HTML>I'M THE ONLY TEMPLATE IN THE WHOLE VILLAGE</HTML>");
-    });
+    app.route('/')
+        .get(function (req, res) {
+            res.end("<HTML>I'M THE ONLY TEMPLATE IN THE WHOLE VILLAGE</HTML>");
+        })
+    ;
+}
 
 //////////////////////////////////////////////////////////////////////////
 //
@@ -34,8 +41,13 @@ app.use(bodyParser.json());
 
 app.use('/', require('./routes/logger'));
 
+//////////////////////////////////////////////////////////////////////////
+//
+// Basically a 404, but not exposing any secrets by doing so...
+//
+//////////////////////////////////////////////////////////////////////////
 app.use(function(req, res) {
-    console.log("ACCESS FAIL: ",req);
+    console.log("FAIL: No matching routes",req);
     res.removeHeader('Content-Length');
     res.removeHeader('Connection');
     res.removeHeader('Transfer-Encoding');
@@ -45,8 +57,11 @@ app.use(function(req, res) {
 });
 
 
+//////////////////////////////////////////////////////////////////////////
+//
 // START THE SERVER
-// =============================================================================
+//
+//////////////////////////////////////////////////////////////////////////
 
 app.listen(config.server.http, config.server.ip);
-console.log("nodestats-logger is listening on http://"+config.server.ip+":"+config.server.http+"/");
+console.log("READY: nodestats-logger is listening on http://"+config.server.ip+":"+config.server.http+"/");
